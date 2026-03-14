@@ -1,4 +1,6 @@
 #!/bin/bash
+# https://www.youtube.com/watch?v=4EA07LUEMZI
+# 
 echo "You give a man a rat, you satisfy his RAT DESIRE. You give a man a keyboard, you satisfy his RAT DESIRE."
 echo "When ready to type, write "y" and press ENTER."
 echo "The timer starts immediately when you press ENTER."
@@ -19,8 +21,10 @@ done
 echo ""
 echo "TEXT: ${quote}"
 echo ""
-echo "Are you ready to start? [y/n] "
-read response
+read -n 1 -p "Are you ready to start? [y/n]: " response
+echo ""
+
+
 
 len=${#quote}
 
@@ -59,4 +63,4 @@ echo "Final WPM: ${finalwpm}"
 read -e -n 1 -p "Do you want to play again [y/n]: " play_again 
 done
 
-echo "thanks for playing"
+echo "So it seems your RAT DESIRE has been sated."
