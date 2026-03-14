@@ -9,6 +9,8 @@ if [ "$1" == "" ]; then
   echo "please specify easy or  medium or  hard as a parameters when running the script "
   exit
 fi
+play_again=y
+while [ "$play_again" == "y" ]; do 
 quote=$(shuf -n 1 $1)
 while [ "${qoute}" == "" ]
 do
@@ -53,3 +55,8 @@ echo "Raw WPM: ${wpm}"
 echo "Accuracy: ${acc}"
 finalwpm=$(echo "scale=2; ${wpm}*${acc}/100" | bc)
 echo "Final WPM: ${finalwpm}"
+
+read -e -n 1 -p "Do you want to play again [y/n]: " play_again 
+done
+
+echo "thanks for playing"
