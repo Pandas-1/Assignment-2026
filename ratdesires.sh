@@ -3,12 +3,20 @@ echo "You give a man a rat, you satisfy his RAT DESIRE. You give a man a keyboar
 echo "When ready to type, write "y" and press ENTER."
 echo "The timer starts immediately when you press ENTER."
 echo "When you are done, press ENTER immediately."
+#insert part for difficulty selection
 
-quote="the quick brown fox jumped over my aaaah"
+if [ "$1" == "" ]; then
+  echo "please specify easy or  medium or  hard as a parameters when running the script "
+  exit
+fi
+quote=$(shuf -n 1 $1)
+while [ "${qoute}" == "" ]
+do
+  qoute=$(shuf -n 1 $1)
+done
 echo ""
 echo "TEXT: ${quote}"
 echo ""
-
 echo "Are you ready to start? [y/n] "
 read response
 
@@ -19,6 +27,8 @@ if [ ${response} == "y" ]; then
   read -e -n ${len} -p "PROMPT: " input # restricted input length
   diff=$(echo "${EPOCHREALTIME} - ${initial}" | bc)
   # echo ${diff}
+else
+  exit
 fi
 
 # compare quote and input
